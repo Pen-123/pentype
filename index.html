@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pentype</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="manifest" href="manifest.json" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pentype</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
 </head>
 <body>
-<div class="app">
-<h1 class="title">pen<span>type</span></h1>
+  <div class="app">
+    <h1 class="title">pen<span>type</span></h1>
 
+    <div class="test-box">
+      <p id="word-box"></p>
+      <input autofocus id="type-input" autocomplete="off" />
+    </div>
 
-<div class="test-box">
-<p id="word-box"></p>
-<input autofocus id="type-input" autocomplete="off" />
-</div>
+    <div class="stats">
+      <div>WPM: <span id="wpm">0</span></div>
+      <div>Accuracy: <span id="acc">100%</span></div>
+      <div>Time: <span id="timer">30</span>s</div>
+    </div>
 
+    <button id="restart">restart</button>
+  </div>
 
-<div class="stats">
-<div>WPM: <span id="wpm">0</span></div>
-<div>Accuracy: <span id="acc">100%</span></div>
-<div>Time: <span id="timer">30</span>s</div>
-</div>
-
-
-<button id="restart">restart</button>
-</div>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js");
+  }
+</script>
 </body>
 </html>
